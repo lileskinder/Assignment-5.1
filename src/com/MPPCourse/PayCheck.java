@@ -1,6 +1,6 @@
 package com.MPPCourse;
 
-import java.util.*;
+import java.text.DecimalFormat;
 
 public class PayCheck {
     private final double grossPay;
@@ -9,7 +9,6 @@ public class PayCheck {
     private final double local;
     private final double medicare;
     private final double socialSecurity;
-    //private final DateRange payPeriod;
 
     private final double ficaTax;
     private final double stateTax;
@@ -39,26 +38,28 @@ public class PayCheck {
         return grossPay;
     }
 
-//    public DateRange getPayPeriod() {
-//        return payPeriod;
-//    }
 
     public double getNetPay() {
-        double netPay = 0;
-        //if (payPeriod.isInRange()) {
-            netPay = getGrossPay() - this.ficaTax - this.stateTax - this.localTax - this.medicareTax - this.socialSecurityTax;
-       // }
-        return netPay;
+        return getGrossPay() - this.ficaTax - this.stateTax - this.localTax - this.medicareTax - this.socialSecurityTax;
     }
 
 
 
     public String print() {
-        return  "FICA Tax: "+ this.ficaTax+ "\n" +
-                "State Tax = " + this.stateTax + "\n" +
-                "Local Tax = " + this.localTax + "\n" +
-                "MedicareTax: " + this.medicareTax + "\n" +
-                "Social Security Tax: " + this.socialSecurityTax + "\n" +
-                "Net Salary: " + getNetPay();
+        DecimalFormat df = new DecimalFormat("#.##");
+        String ficaString = df.format(this.ficaTax);
+        String stateString = df.format(this.stateTax);
+        String localString = df.format(this.localTax);
+        String medicareString = df.format(this.medicareTax);
+        String socialSecurityString = df.format(this.socialSecurityTax);
+        String netPayString = df.format(getNetPay());
+
+        return "FICA Tax: " + ficaString + "\n" +
+                "State Tax: " + stateString + "\n" +
+                "Local Tax: " + localString + "\n" +
+                "Medicare Tax: " + medicareString + "\n" +
+                "Social Security Tax: " + socialSecurityString + "\n" +
+                "Net Salary: " + netPayString + "\n";
+
     }
 }

@@ -8,8 +8,6 @@ public class DateRange {
     private LocalDate startDate;
     private LocalDate endDate;
 
-//    private int month;
-//    private int year;
 
     public DateRange(int month, int year) {
         this.date = LocalDate.of(year, month, 10);

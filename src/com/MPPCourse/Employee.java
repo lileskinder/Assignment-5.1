@@ -1,8 +1,5 @@
 package com.MPPCourse;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 public abstract class Employee {
     private String empID;
 
@@ -27,7 +24,6 @@ public abstract class Employee {
         System.out.println(empId + " " + "\n" +
                 grossPay + "\n" +
                 calcCompensation().print() + "\n"
-//order.getOrderDate().getMonth().getValue(), order.getOrderDate().getYear()
         );
     }
 
